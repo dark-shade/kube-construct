@@ -29,3 +29,5 @@ brctl delbr cni0
 
 echo -e "${green}${bold}Cluster successfully cleared${nc}${normal}"
 echo -e "${cyan}${bold}Ignore any errors above${nc}${normal}"
+
+su - pirate
