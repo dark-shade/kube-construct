@@ -1,6 +1,18 @@
 #!/bin/bash
 # Script to tear down the cluster
-echo "Tearing down the cluster"
+
+# colors
+orange='\033[0;33m'
+red='\033[0;31m'
+nc='\033[0m' # No Color
+green='\033[0;32m'
+cyan='\033[0;36m'
+
+# formatting
+bold=$(tput bold)
+normal=$(tput srg0)
+
+echo -e "${green}${bold}Tearing down the cluster${nc}${normal}"
 
 if [ $USER != "root" ]
 then 
@@ -15,5 +27,5 @@ rm -rf /etc/cn
 ifconfig cni0 down
 brctl delbr cni0
 
-echo "Cluster successfully cleared"
-echo "Ignore any errors above"
+echo "${green}${bold}Cluster successfully cleared${nc}${normal}"
+echo "${cyan}${bold}Ignore any errors above${nc}${normal}"
