@@ -27,5 +27,5 @@ rm -rf /etc/cn
 ifconfig cni0 down
 brctl delbr cni0
 
-echo "${green}${bold}Cluster successfully cleared${nc}${normal}"
-echo "${cyan}${bold}Ignore any errors above${nc}${normal}"
+echo -e "${green}${bold}Cluster successfully cleared${nc}${normal}"
+echo -e "${cyan}${bold}Ignore any errors above${nc}${normal}"
