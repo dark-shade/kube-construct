@@ -36,14 +36,24 @@ then
 	echo -e "${cyan}${bold}Please perform same actions on other nodes${nc}${normal}"
 fi
 
+while true; do
+    read -p "Is this the master node? Yes[y/Y] or No[n/N]" yn
+    case $yn in
+        [Yy]* ) isMaster="yes"; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
+if [ $isMaster = "yes" ]
+then
+	wifiName=$(ifconfig wlan0|grep -Po 't addr:\K[\d.]+')
 
-wifiName=$(ifconfig wlan0|grep -Po 't addr:\K[\d.]+')
+	echo -e "${cyan}${bold}--- Initializing kubeadm ---${nc}${normal}"
+	kubeadm init --pod-network-cidr 10.244.0.0/16 --apiserver-advertise-address=$wifiName
 
-echo -e "${cyan}${bold}--- Initializing kubeadm ---${nc}${normal}"
-kubeadm init --pod-network-cidr 10.244.0.0/16 --apiserver-advertise-address=$wifiName
-
-echo -e "${greeb}${bold}Initialization complete${nc}${normal}"
+	echo -e "${greeb}${bold}Initialization complete${nc}${normal}"
+fi
 
 su - pirate
 
