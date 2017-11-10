@@ -23,7 +23,7 @@ while true; do
     esac
 done
 
-
+echo -e "${orange}${bold}The current interface file will be backed up in present working directory"
 yes | cp -rf /etc/network/interfaces .
 
 while true; do
@@ -47,3 +47,4 @@ else
 	echo -e "auto lo\n\niface lo inet loopback\niface eth0 inet dhcp\n\nauto wlan0\nallow-hotplug wlan0\niface wlan0 inet dhcp\n\twpa-scan-ssid 1\n\twpa-ap-scan 1\n\twpa-key-mgmt WPA-PSK\n\twpa-proto RSN WPA\n\twpa-pairwise CCMP TKIP\n\twpa-group CCMP TKIP\n\twpa-ssid \"$ssid\"\n\twpa-psk \"$password\"\n\niface default inet dhcp" > /etc/network/interfaces
 fi
 
+echo -e "${green}${bold}Wifi successfully configured"
