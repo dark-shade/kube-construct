@@ -53,14 +53,15 @@ then
 	kubeadm init --pod-network-cidr 10.244.0.0/16 --apiserver-advertise-address=$wifiName
 
 	echo -e "${greeb}${bold}Initialization complete${nc}${normal}"
+
+	echo -e "${cyan}${bold}-- Setting up cluster --${nc}${normal}"
+	sudo cp /etc/kubernetes/admin.conf $HOME/
+	sudo chown $(id -u):$(id -g) $HOME/admin.conf
+	export KUBECONFIG=$HOME/admin.conf
+
 fi
 
-su - pirate
-
-echo -e "${cyan}${bold}-- Setting up cluster --${nc}${normal}"
-sudo cp /etc/kubernetes/admin.conf $HOME/
-sudo chown $(id -u):$(id -g) $HOME/admin.conf
-export KUBECONFIG=$HOME/admin.conf
+sudo - pirate
 
 echo -e "${green}${bold}Setup Complete${nc}${normal}"
 echo -e "${cyan}${bold}Please join the other nodes using the token generated above${nc}${normal}"
