@@ -16,7 +16,7 @@ echo -e "${orange}${bold}----- Initializing Master -----${nc}${normal}"
 
 if [ $USER != "root" ]
 then
-	$(sudo su -)
+	sudo su -
 fi
 
 status=$(dpkg-query -W -f='${Status} ${Version}\n' kubeadm)
@@ -61,7 +61,7 @@ then
 
 fi
 
-sudo - pirate
+su - pirate
 
 echo -e "${green}${bold}Setup Complete${nc}${normal}"
 echo -e "${cyan}${bold}Please join the other nodes using the token generated above${nc}${normal}"
