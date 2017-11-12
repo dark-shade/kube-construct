@@ -10,7 +10,7 @@ orange='\033[0;33m'
 
 # formatting
 bold=$(tput bold)
-normal=$(tput srg0)
+normal=$(tput sgr0)
 
 echo -e "${orange}${bold}----- Initializing Master -----${nc}${normal}"
 

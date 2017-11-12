@@ -9,7 +9,7 @@ orange='\033[0;33m'
 
 # formatting
 bold=$(tput bold)
-normal=$(tput srg0)
+normal=$(tput sgr0)
 
 
 echo -e "${red}${bold}Warning: ${normal}This will delete all your previous wifi configuration just to make sure that there are no conflicts."

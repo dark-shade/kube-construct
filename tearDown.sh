@@ -10,7 +10,7 @@ cyan='\033[0;36m'
 
 # formatting
 bold=$(tput bold)
-normal=$(tput srg0)
+normal=$(tput sgr0)
 
 echo -e "${green}${bold}Tearing down the cluster${nc}${normal}"
 
