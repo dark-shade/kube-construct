@@ -14,20 +14,13 @@ normal=$(tput sgr0)
 
 echo -e "${green}${bold}Tearing down the cluster${nc}${normal}"
 
-if [ $USER != "root" ]
-then 
-	sudo su -
-fi
-
-kubeadm reset
-etcdctl rm --recursive registry
-rm -rf /var/lib/cni
-rm -rf /run/flannel
-rm -rf /etc/cn
-ifconfig cni0 down
-brctl delbr cni0
+sudo kubeadm reset
+sudo etcdctl rm --recursive registry
+sudo rm -rf /var/lib/cni
+sudo rm -rf /run/flannel
+sudo rm -rf /etc/cn
+sudo ifconfig cni0 down
+sudo brctl delbr cni0
 
 echo -e "${green}${bold}Cluster successfully cleared${nc}${normal}"
 echo -e "${cyan}${bold}Ignore any errors above${nc}${normal}"
-
-su - pirate
