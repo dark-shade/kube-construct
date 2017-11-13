@@ -14,13 +14,25 @@ normal=$(tput sgr0)
 
 echo -e "${green}${bold}Tearing down the cluster${nc}${normal}"
 
-sudo kubeadm reset
-sudo etcdctl rm --recursive registry
+if [[ $(sudo dpkg-query -W -f='${Status} ${Version}\n' kubeadm) = "install ok"* ]] > /dev/null 2>&1
+then
+	sudo kubeadm reset
+fi
+
+if [[ $(sudo dpkg-query -W -f='${Status} ${Version}\n' etcdctl) = "install ok"* ]] > /dev/null 2>&1
+then
+	sudo etcdctl rm --recursive registry
+fi
+
 sudo rm -rf /var/lib/cni
 sudo rm -rf /run/flannel
 sudo rm -rf /etc/cn
-sudo ifconfig cni0 down
-sudo brctl delbr cni0
+sudo ifconfig cni0 down > /dev/null 2>&1
+
+if [[ $(sudo dpkg-query -W -f='${Status} ${Version}\n' brctl) = "install ok"* ]] > /dev/null 2>&1
+then
+	sudo brctl delbr cni0
+fi
 
 echo -e "${green}${bold}Cluster successfully cleared${nc}${normal}"
 echo -e "${cyan}${bold}Ignore any errors above${nc}${normal}"
