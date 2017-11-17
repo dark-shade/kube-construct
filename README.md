@@ -21,3 +21,8 @@ setupWifi | configures wifi
 1. [Setup kubernetes raspberry pi cluster](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/)
 2. [How to run shell scripts](https://askubuntu.com/questions/38661/how-do-i-run-sh-files)
 3. [Issues in kubernetes](https://github.com/kubernetes/kubernetes/issues)
+
+### Developer comments
+Will improve these scripts and increase their scope as much as possible. Will be working on this repo
+until the end of the year 2017. For any suggestions, reviews, and constructive criticism please email me at 
+`sankul.rawat.28@gmail.com`.
