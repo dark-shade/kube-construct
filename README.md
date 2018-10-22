@@ -23,6 +23,4 @@ setupWifi | configures wifi
 3. [Issues in kubernetes](https://github.com/kubernetes/kubernetes/issues)
 
 ### Developer comments
-Will improve these scripts and increase their scope as much as possible. Will be working on this repo
-until the end of the year 2017. For any suggestions, reviews, and constructive criticism please email me at 
-`sankul.rawat.28@gmail.com`.
+Kube-constuct is being merged with [Utility Scipts Project](https://github.com/dark-shade/UtilityScripts)
