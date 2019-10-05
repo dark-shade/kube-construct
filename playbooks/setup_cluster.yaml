@@ -1,0 +1,18 @@
+---
+- hosts: nodes
+  remote_user: pi
+  tasks:
+  - name: update and install curl
+    apt:
+      name: "{{ packages }}"
+      state: present
+      update-cache: yes
+    vars:
+      packages:
+      - curl
+    become: yes
+    become_user: root
+- hosts: master
+  remote_user: pi
+  tasks:
+  - name: 

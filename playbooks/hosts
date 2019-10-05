@@ -1,0 +1,11 @@
+[master]
+masternode
+
+[nodes]
+masternode
+slave1
+slave2
+
+[workers]
+slave1
+slave2
